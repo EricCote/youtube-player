@@ -5,6 +5,8 @@ import Home from './Home';
 import { useEffect, useState } from 'react';
 import Menu from './Menu';
 import Users from './Users';
+import PropDrill from './PropDrilling/L1-SimpleState';
+import SimpleContext from './ContextSample/L1-SimpleContext';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(
@@ -52,6 +54,10 @@ function Routage({ route }) {
       return <Compteur />;
     case '#users':
       return <Users />;
+    case '#props':
+      return <PropDrill />;
+    case '#context':
+      return <SimpleContext />;
     default:
       return <Home />;
   }
