@@ -1,40 +1,48 @@
-import React from 'react';
-import MyInputs from './MyInputs';
+import { useContext } from 'react';
 import MyContext from './MyContext';
+import { Form } from 'react-bootstrap';
 
 //Hooks only work with functions
-export default function ContextHooks() {
-  const ctx = React.useContext(MyContext);
-  return <MyInputs {...ctx} />;
-}
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-//
-//Other (older) altenatives of consuming hooks:
-
-//1. using the context consumer
-//standard way to consume context, available to both functions and classes
-//(this is a "function as child component")
-
-export function ContextConsumer() {
+export default function EditData() {
+  const { firstName, lastName, color, onChange } = useContext(MyContext);
   return (
-    <MyContext.Consumer>
-      {
-        (ctx) => <MyInputs {...ctx} /> //
-      }
-    </MyContext.Consumer>
+    <>
+      <Form.Control
+        value={firstName}
+        name='firstName'
+        placeholder='First Name'
+        onChange={onChange}
+        className='mb-4'
+      />
+      {lastName !== undefined && (
+        <Form.Control
+          value={lastName}
+          name='lastName'
+          placeholder='Last Name'
+          onChange={onChange}
+          className='mb-4'
+        />
+      )}
+      <Form.Control
+        value={color}
+        name='color'
+        placeholder='Color'
+        onChange={onChange}
+      />
+    </>
   );
 }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

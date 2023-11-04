@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars,no-eval  */
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import BlueBox from './L2Left-BlueBox';
 import GreyBoxes from './L2Right-GreyBoxes';
 import { Row, Col } from 'react-bootstrap';
@@ -7,19 +7,31 @@ import MyContext from './MyContext';
 
 export default function SimpleContext() {
   const [firstName, setFirstName] = useState('John');
+  const [lastName, setLastName] = useState('Adams');
   const [color, setColor] = useState('blue');
 
   function change(evt) {
     const { name, value } = evt.target;
 
-    const fnName = 'set' + name[0].toUpperCase() + name.slice(1);
-    const str = `${fnName}("${value}")`;
+    switch (name) {
+      case 'firstName':
+        return setFirstName(value);
+      case 'lastName':
+        return setLastName(value);
+      case 'color':
+        return setColor(value);
+    }
 
-    eval(str);
+    // const fnName = 'set' + name[0].toUpperCase() + name.slice(1);
+    // const str = `${fnName}("${value}")`;
+
+    // eval(str);
   }
 
   return (
-    <MyContext.Provider value={{ firstName, color, onChange: change }}>
+    <MyContext.Provider
+      value={{ firstName, lastName, color, onChange: change }}
+    >
       <Content />
     </MyContext.Provider>
   );
