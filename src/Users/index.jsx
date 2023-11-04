@@ -1,30 +1,7 @@
-import { useEffect, useState } from 'react';
+import useUsers from '../utile/useUsers';
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
-
-  async function getAllUsers() {
-    const result = await fetch('https://dummyjson.com/users');
-    const data = await result.json();
-
-    setUsers(data.users);
-  }
-
-  useEffect(() => {
-    if (window.localStorage.getItem('users')) {
-      setUsers(JSON.parse(window.localStorage.getItem('users')));
-    } else {
-      getAllUsers();
-    }
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (users.length > 0) {
-        window.localStorage.setItem('users', JSON.stringify(users));
-      }
-    };
-  }, [users]);
+  const [users] = useUsers();
 
   return (
     <>
@@ -33,7 +10,7 @@ export default function Users() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <img src={user.image} />
+            <img src={user.image} height={50} />
             {user.firstName} {user.lastName}
           </li>
         ))}
