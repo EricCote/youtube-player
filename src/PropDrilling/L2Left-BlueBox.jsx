@@ -1,12 +1,6 @@
 import DisplayData from './L3Left-DisplayData';
 
-interface BlueBoxProps {
-  firstName: string;
-  lastName?: string;
-  color: string;
-}
-
-export default function BlueBox({ firstName, lastName, color }: BlueBoxProps) {
+export default function BlueBox({ firstName, lastName, color }) {
   return (
     <div
       style={{

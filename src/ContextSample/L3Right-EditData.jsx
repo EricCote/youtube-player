@@ -1,4 +1,4 @@
-import React, { ContextType } from 'react';
+import React from 'react';
 import MyInputs from './MyInputs';
 import MyContext from './MyContext';
 
@@ -37,17 +37,4 @@ export function ContextConsumer() {
       }
     </MyContext.Consumer>
   );
-}
-
-//2. using ContextTypes
-//This way only works with classes.
-
-export class ContextTypes extends React.Component {
-  static contextType = MyContext;
-  declare context: ContextType<typeof MyContext>;
-
-  render() {
-    const ctx = this.context;
-    return <MyInputs {...ctx} />;
-  }
 }

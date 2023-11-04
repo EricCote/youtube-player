@@ -9,7 +9,7 @@ export default function SimpleState() {
   const [lastName, setLastName] = useState('Adams');
   const [color, setColor] = useState('blue');
 
-  function change(evt: ChangeEvent<HTMLInputElement>) {
+  function change(evt) {
     const { name, value } = evt.target;
 
     const fnName = 'set' + name[0].toUpperCase() + name.slice(1);

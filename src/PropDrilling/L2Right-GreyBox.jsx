@@ -1,19 +1,6 @@
-import { ChangeEventHandler } from 'react';
 import ModifyData from './L3Right-ModifyData';
 
-interface GreyBoxProps {
-  firstName: string;
-  lastName?: string;
-  color: string;
-  onChange: ChangeEventHandler;
-}
-
-export default function GreyBox({
-  firstName,
-  lastName,
-  color,
-  onChange,
-}: GreyBoxProps) {
+export default function GreyBox({ firstName, lastName, color, onChange }) {
   return (
     <div
       style={{

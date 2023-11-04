@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars,no-eval  */
+/* eslint-disable no-unused-vars,no-eval  */
 import { ChangeEvent, useState } from 'react';
 import BlueBox from './L2Left-BlueBox';
 import GreyBoxes from './L2Right-GreyBoxes';
@@ -6,10 +6,10 @@ import { Row, Col } from 'react-bootstrap';
 import MyContext from './MyContext';
 
 export default function SimpleContext() {
-  const [firstName, setFirstName] = useState<string>('John');
-  const [color, setColor] = useState<string>('blue');
+  const [firstName, setFirstName] = useState('John');
+  const [color, setColor] = useState('blue');
 
-  function change(evt: ChangeEvent<HTMLInputElement>) {
+  function change(evt) {
     const { name, value } = evt.target;
 
     const fnName = 'set' + name[0].toUpperCase() + name.slice(1);

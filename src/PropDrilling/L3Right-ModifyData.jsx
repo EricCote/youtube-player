@@ -1,19 +1,6 @@
-import { ChangeEventHandler } from 'react';
 import { Form } from 'react-bootstrap';
 
-interface ModifyDataProps {
-  firstName: string;
-  lastName?: string;
-  color: string;
-  onChange?: ChangeEventHandler;
-}
-
-export default function ModifyData({
-  firstName,
-  lastName,
-  color,
-  onChange,
-}: ModifyDataProps) {
+export default function ModifyData({ firstName, lastName, color, onChange }) {
   return (
     <>
       <Form.Control

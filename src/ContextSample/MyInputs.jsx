@@ -1,7 +1,6 @@
 import { Form } from 'react-bootstrap';
-import { MyContext } from './MyContext';
 
-export default function MyInputs(ctx: MyContext) {
+export default function MyInputs(ctx) {
   return (
     <>
       <Form.Control
