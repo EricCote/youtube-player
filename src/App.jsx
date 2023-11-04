@@ -7,6 +7,7 @@ import Menu from './Menu';
 import Users from './Users';
 import PropDrill from './PropDrilling/L1-SimpleState';
 import SimpleContext from './ContextSample/L1-SimpleContext';
+import Todos from './Todos/State/TodosContainer';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(
@@ -58,6 +59,8 @@ function Routage({ route }) {
       return <PropDrill />;
     case '#context':
       return <SimpleContext />;
+    case '#todos':
+      return <Todos />;
     default:
       return <Home />;
   }
