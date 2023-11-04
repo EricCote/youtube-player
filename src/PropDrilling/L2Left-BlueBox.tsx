@@ -6,7 +6,7 @@ interface BlueBoxProps {
   color: string;
 }
 
-export default function BlueBox({ firstName, color }: BlueBoxProps) {
+export default function BlueBox({ firstName, lastName, color }: BlueBoxProps) {
   return (
     <div
       style={{
@@ -16,7 +16,7 @@ export default function BlueBox({ firstName, color }: BlueBoxProps) {
         padding: '5px 20px',
       }}
     >
-      <DisplayData firstName={firstName} color={color} />
+      <DisplayData firstName={firstName} lastName={lastName} color={color} />
     </div>
   );
 }

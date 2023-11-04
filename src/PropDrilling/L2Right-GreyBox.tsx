@@ -8,7 +8,12 @@ interface GreyBoxProps {
   onChange: ChangeEventHandler;
 }
 
-export default function GreyBox({ firstName, color, onChange }: GreyBoxProps) {
+export default function GreyBox({
+  firstName,
+  lastName,
+  color,
+  onChange,
+}: GreyBoxProps) {
   return (
     <div
       style={{
@@ -18,7 +23,12 @@ export default function GreyBox({ firstName, color, onChange }: GreyBoxProps) {
       }}
     >
       <h1>Modify State (Property Drilling)</h1>
-      <ModifyData firstName={firstName} color={color} onChange={onChange} />
+      <ModifyData
+        firstName={firstName}
+        lastName={lastName}
+        color={color}
+        onChange={onChange}
+      />
       {/* <ModifyData {...props} /> */}
     </div>
   );

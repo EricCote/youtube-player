@@ -15,7 +15,7 @@ export default function Menu() {
             <Nav.Link href='#compteur'>Compteur</Nav.Link>
             <Nav.Link href='#users'>Users</Nav.Link>
             <Nav.Link href='#props'>Props Drill</Nav.Link>
-            <Nav.Link href='#props'>Context</Nav.Link>
+            <Nav.Link href='#context'>Context</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

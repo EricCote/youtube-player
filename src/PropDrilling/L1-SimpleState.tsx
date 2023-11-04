@@ -6,6 +6,7 @@ import { Row, Col } from 'react-bootstrap';
 
 export default function SimpleState() {
   const [firstName, setFirstName] = useState('John');
+  const [lastName, setLastName] = useState('Adams');
   const [color, setColor] = useState('blue');
 
   function change(evt: ChangeEvent<HTMLInputElement>) {
@@ -20,10 +21,15 @@ export default function SimpleState() {
   return (
     <Row>
       <Col md='6'>
-        <BlueBox firstName={firstName} color={color} />
+        <BlueBox firstName={firstName} lastName={lastName} color={color} />
       </Col>
       <Col md='6'>
-        <GreyBox firstName={firstName} color={color} onChange={change} />
+        <GreyBox
+          firstName={firstName}
+          lastName={lastName}
+          color={color}
+          onChange={change}
+        />
       </Col>
     </Row>
   );
