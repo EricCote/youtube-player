@@ -1,37 +1,33 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import FilterButtons from './FilterButtons';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import initialTodos from '../Common/initial-todos';
 import { StatusFilters } from '../Common/StatusFilters';
-
-let currentId = 4;
+import { reducerTodos } from './reducerTodos';
+import { reducerFilter } from './reducerFilter';
 
 export default function Todos() {
-  const [todos, setTodos] = useState(initialTodos);
-  const [visibilityFilter, setVisibilityFilter] = useState(StatusFilters.All);
+  const [todos, dispatch] = useReducer(reducerTodos, initialTodos);
+  const [visibilityFilter, dispatchFilter] = useReducer(
+    reducerFilter,
+    StatusFilters.All
+  );
 
   function toggleTodo(id) {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    dispatch({ type: 'toggleTodo', payload: id });
   }
 
   function addTodo(todoText) {
-    setTodos([
-      ...todos,
-      {
-        id: currentId++,
-        text: todoText,
-        completed: false,
-      },
-    ]);
+    dispatch({ type: 'addTodo', payload: todoText });
+  }
+
+  function deleteTodo(id) {
+    dispatch({ type: 'deleteTodo', payload: id });
   }
 
   function changeFilter(filter) {
-    setVisibilityFilter(filter);
+    dispatchFilter({ type: 'newFilter', payload: filter });
   }
 
   function filterTodos(todos, filter) {
@@ -57,9 +53,7 @@ export default function Todos() {
       <TodoList
         todos={filteredTodos}
         onToggleTodo={toggleTodo}
-        onDeleteTodo={() => {
-          alert('To be programmed');
-        }}
+        onDeleteTodo={deleteTodo}
       />
     </div>
   );

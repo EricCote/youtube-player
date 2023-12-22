@@ -1,4 +1,4 @@
-import useUsers from '../utile/useUsers';
+import useUsers from './useUsers';
 
 export default function Users() {
   const [users] = useUsers();
